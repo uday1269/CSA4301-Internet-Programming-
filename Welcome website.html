@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title>My first website</title>
+
+   <style>
+    body{
+background-color: lightblue;
+}
+
+   .continer{
+        width: 400px;
+    background-color: white;
+    border: 2px solid blue;
+    padding: 20px;
+    margin: auto;
+	white-space=nowrap;
+overflow: hidden;
+    text-align: center;
+		
+}
+.scroll{
+    color: blue;
+    font-family: Cambria;
+	font-size: 14px;
+	white-space=nowrap;
+	font-weight=bold;
+	animation: move 8s linear infinite;
+}
+@keyframes move{
+    from{
+        transform:translateX(100%);
+    }
+
+    to{
+        transform:translateX(-100%);
+    }
+}
+
+.button{
+background-color: blue;
+color: white;
+}
+</style>
+</head>
+<body>
+  
+<div class="continer">	
+	<div class="scroll">welcome to my website</div>
+
+   <h1>welcome to my website</h1>
+
+    <p> this is my website</p>
+        <button class="button">click Me</button>
+
+</div>
+</body>
+</html>
