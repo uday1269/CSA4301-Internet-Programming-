@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Campus Service Helpdesk</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    padding:30px;
+    font-family:Verdana, sans-serif;
+    background:#eef2f7;
+    color:#263238;
+    line-height:1.6;
+}
+
+.main-box{
+    width:92%;
+    max-width:1050px;
+    margin:auto;
+    background:#ffffff;
+    padding:30px;
+    border-radius:14px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.12);
+}
+
+h1{
+    text-align:center;
+    color:#17365d;
+    margin-bottom:10px;
+}
+
+h2{
+    color:white;
+    background:#17365d;
+    padding:12px 15px;
+    border-radius:7px;
+    margin-top:30px;
+}
+
+h3{
+    color:#17365d;
+}
+
+form{
+    background:#f7faff;
+    padding:20px;
+    border-radius:8px;
+    border:1px solid #d8e1ec;
+}
+
+label{
+    display:block;
+    margin-top:12px;
+    font-weight:bold;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:11px;
+    margin-top:6px;
+    border:1px solid #b8c4d1;
+    border-radius:6px;
+    font-size:15px;
+}
+
+textarea{
+    resize:vertical;
+}
+
+button{
+    margin-top:10px;
+    padding:11px 24px;
+    border:none;
+    border-radius:6px;
+    background:#17365d;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#245a91;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin:15px 0;
+}
+
+th,
+td{
+    border:1px solid #aeb8c2;
+    padding:12px;
+}
+
+th{
+    background:#245a91;
+    color:white;
+}
+
+tr:nth-child(even){
+    background:#f3f6fa;
+}
+
+pre{
+    background:#202b36;
+    color:#e8f1f8;
+    padding:16px;
+    border-radius:6px;
+    overflow-x:auto;
+}
+
+code{
+    background:#f1e7eb;
+    color:#a61b45;
+    padding:2px 5px;
+}
+
+.answer{
+    background:#f7faff;
+    border-left:4px solid #245a91;
+    padding:12px 18px;
+    margin:12px 0;
+}
+
+hr{
+    border:0;
+    border-top:1px solid #d6dce3;
+    margin:35px 0;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="main-box">
+
+<h1>Campus Service Helpdesk</h1>
+
+<p>
+The Campus Service Helpdesk is a web-based system through which students
+can report problems related to academics, accommodation, transportation,
+library facilities and other campus services.
+</p>
+
+
+<!-- COMPLAINT FORM -->
+
+<form>
+
+<label>Full Name</label>
+<input type="text" name="studentName" placeholder="Enter your name">
+
+<label>Registration ID</label>
+<input type="text" name="registerId" placeholder="Enter registration number">
+
+<label>Email Address</label>
+<input type="email" name="emailId" placeholder="Enter email address">
+
+<label>Service Category</label>
+
+<select name="category">
+
+<option>Academic Issue</option>
+<option>Hostel Issue</option>
+<option>Transport Issue</option>
+<option>Library Issue</option>
+<option>Other Issue</option>
+
+</select>
+
+<label>Problem Details</label>
+
+<textarea
+name="description"
+rows="5"
+placeholder="Describe your problem">
+</textarea>
+
+<button type="submit">
+Send Complaint
+</button>
+
+</form>
+
+
+<hr>
+
+
+<!-- QUESTION 1 -->
+
+<h2>Question 1: HTTP Header Error Analysis</h2>
+
+<h3>Given Response</h3>
+
+<pre>
+HTTP/1.1 200 OK
+Date: Mon, 01 Apr 2026 10:00:00 GMT
+Content-Type: text/html
+Content-Length: -150
+Connection: keep-alive
+</pre>
+
+<div class="answer">
+
+<b>Incorrect Header Field:</b>
+
+<p>
+The invalid field is <code>Content-Length: -150</code>.
+A content length represents the size of the response body in bytes,
+so it cannot contain a negative value.
+</p>
+
+</div>
+
+<h3>Effect on the Browser</h3>
+
+<p>
+When the server returns the complaint confirmation page,
+the browser uses the Content-Length value to determine the expected
+size of the response. A negative value is invalid and can cause
+problems while processing the response.
+</p>
+
+<h3>Status Code</h3>
+
+<p>
+The status code <b>200 OK</b> means that the server successfully
+processed the request. However, the response header itself contains
+an invalid Content-Length value.
+</p>
+
+<h3>Corrected Response</h3>
+
+<pre>
+HTTP/1.1 200 OK
+Date: Mon, 01 Apr 2026 10:00:00 GMT
+Content-Type: text/html
+Content-Length: 150
+Connection: keep-alive
+</pre>
+
+
+<hr>
+
+
+<!-- QUESTION 2 -->
+
+<h2>Question 2: DOM Tree and HTML Validation</h2>
+
+<h3>Given HTML</h3>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Service Helpdesk&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;section&gt;
+&lt;p&gt;Complaint received
+
+&lt;/section&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3>Problem Identified</h3>
+
+<ul>
+<li>The paragraph element is missing its closing <code>&lt;/p&gt;</code> tag.</li>
+</ul>
+
+<h3>How the Browser Handles It</h3>
+
+<p>
+Most modern browsers use their HTML parser to automatically recover
+from certain markup errors. Therefore, the missing closing paragraph
+element may be inserted automatically while constructing the DOM tree.
+</p>
+
+<h3>Possible Effects</h3>
+
+<ul>
+<li>The document is not properly written according to HTML syntax.</li>
+<li>CSS selectors may produce unexpected results.</li>
+<li>JavaScript DOM operations can become difficult to predict.</li>
+<li>The page may still appear correctly in many browsers.</li>
+</ul>
+
+<h3>Corrected Markup</h3>
+
+<pre>
+&lt;section&gt;
+    &lt;p&gt;Complaint received&lt;/p&gt;
+&lt;/section&gt;
+</pre>
+
+
+<hr>
+
+
+<!-- QUESTION 3 -->
+
+<h2>Question 3: GET and POST Request Methods</h2>
+
+<table>
+
+<tr>
+<th>Feature</th>
+<th>GET</th>
+<th>POST</th>
+</tr>
+
+<tr>
+<td>Data Location</td>
+<td>URL query string</td>
+<td>HTTP request body</td>
+</tr>
+
+<tr>
+<td>URL Visibility</td>
+<td>Data can be visible</td>
+<td>Data is not normally shown in URL</td>
+</tr>
+
+<tr>
+<td>Typical Usage</td>
+<td>Retrieving information</td>
+<td>Submitting information</td>
+</tr>
+
+<tr>
+<td>Suitable for Password</td>
+<td>No</td>
+<td>Yes, together with HTTPS</td>
+</tr>
+
+</table>
+
+<h3>Major Difference</h3>
+
+<ul>
+<li>GET places submitted parameters in the URL.</li>
+<li>POST transfers submitted data through the request body.</li>
+</ul>
+
+<h3>Recommended Method</h3>
+
+<div class="answer">
+
+<p>
+For a student login or complaint submission form, <b>POST</b> is
+more appropriate because sensitive form information should not be
+placed directly in the URL.
+</p>
+
+</div>
+
+<h3>Problems with GET for Login</h3>
+
+<ul>
+<li>Credentials may appear in browser history.</li>
+<li>URLs may be recorded in server or proxy logs.</li>
+<li>The URL can accidentally be shared with another person.</li>
+<li>Sensitive information becomes visible on the screen.</li>
+</ul>
+
+<h3>Security Measures</h3>
+
+<ul>
+<li>Use the POST method for sensitive form submissions.</li>
+<li>Use HTTPS to protect data during transmission.</li>
+<li>Store passwords securely using hashing.</li>
+<li>Use authenticated sessions.</li>
+<li>Validate user input on the server.</li>
+</ul>
+
+
+<hr>
+
+
+<!-- QUESTION 4 -->
+
+<h2>Question 4: Finding Errors in HTML</h2>
+
+<h3>Incorrect Code</h3>
+
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Campus Helpdesk&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;h1&gt;Student Helpdesk
+
+&lt;p&gt;Register your complaint
+
+&lt;img src="helpdesk.jpg"&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3>Errors Found</h3>
+
+<ul>
+<li>The <code>&lt;h1&gt;</code> element has no closing tag.</li>
+<li>The <code>&lt;p&gt;</code> element has no closing tag.</li>
+<li>The image does not contain an <code>alt</code> attribute.</li>
+</ul>
+
+<h3>Why ALT Text is Important</h3>
+
+<p>
+The <code>alt</code> attribute provides alternative text when an image
+cannot be displayed and also improves accessibility for users who
+depend on screen readers.
+</p>
+
+<h3>Improved Image Element</h3>
+
+<pre>
+&lt;img src="helpdesk.jpg"
+     alt="Student Campus Helpdesk"&gt;
+</pre>
+
+<h3>Corrected HTML</h3>
+
+<pre>
+&lt;h1&gt;Student Helpdesk&lt;/h1&gt;
+
+&lt;p&gt;Register your complaint&lt;/p&gt;
+
+&lt;img src="helpdesk.jpg"
+     alt="Student Campus Helpdesk"&gt;
+</pre>
+
+
+<hr>
+
+
+<!-- QUESTION 5 -->
+
+<h2>Question 5: Browser to Server Communication</h2>
+
+<h3>Communication Sequence</h3>
+
+<ol>
+
+<li>The student enters the website address into the browser.</li>
+
+<li>DNS finds the IP address associated with the domain name.</li>
+
+<li>The browser establishes a connection with the required server.</li>
+
+<li>An HTTP request is sent to the web server.</li>
+
+<li>The server processes the requested resource or complaint.</li>
+
+<li>The server returns an HTTP response to the browser.</li>
+
+<li>The browser interprets the response and displays the webpage.</li>
+
+</ol>
+
+<h3>Possible Sources of Delay</h3>
+
+<ul>
+<li>Slow DNS resolution</li>
+<li>Weak network connection</li>
+<li>High server workload</li>
+<li>Large image or video files</li>
+<li>Unoptimized JavaScript</li>
+</ul>
+
+<h3>Purpose of DNS</h3>
+
+<p>
+DNS, or Domain Name System, translates a human-readable website name
+into the numerical IP address required by the browser to locate the
+appropriate web server.
+</p>
+
+<h3>Ways to Improve Website Performance</h3>
+
+<ul>
+<li>Use DNS caching.</li>
+<li>Enable browser caching.</li>
+<li>Compress and optimize images.</li>
+<li>Minimize CSS and JavaScript files.</li>
+<li>Use HTTPS efficiently.</li>
+<li>Enable persistent connections.</li>
+<li>Use a Content Delivery Network when required.</li>
+</ul>
+
+</div>
+
+</body>
+</html>
