@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>StudentSphere - College Portal</title>
+
+<style>
+
+/* ---------- BASIC SETTINGS ---------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f7f9fc;
+    color:#263238;
+}
+
+/* ---------- NAVIGATION ---------- */
+
+header{
+    background:#172554;
+    color:white;
+    padding:16px 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:999;
+    box-shadow:0 3px 12px rgba(0,0,0,0.2);
+}
+
+.logo{
+    font-size:27px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+nav{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    padding:8px 12px;
+    border-radius:6px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    background:#38bdf8;
+    color:#172554;
+}
+
+/* ---------- HERO AREA ---------- */
+
+.hero{
+    min-height:82vh;
+    background:
+    linear-gradient(rgba(23,37,84,0.78),rgba(15,23,42,0.78)),
+    url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1600");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    flex-direction:column;
+    color:white;
+    padding:30px;
+}
+
+.hero h1{
+    font-size:52px;
+    margin-bottom:18px;
+}
+
+.hero p{
+    max-width:750px;
+    font-size:20px;
+    line-height:1.7;
+}
+
+.hero-btn{
+    margin-top:28px;
+    padding:13px 30px;
+    border:none;
+    border-radius:8px;
+    background:#38bdf8;
+    color:#082f49;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+    background:#7dd3fc;
+    transform:translateY(-3px);
+}
+
+/* ---------- COMMON SECTION ---------- */
+
+.wrapper{
+    width:88%;
+    max-width:1150px;
+    margin:auto;
+}
+
+section{
+    padding:65px 0;
+}
+
+.heading{
+    text-align:center;
+    color:#172554;
+    font-size:34px;
+    margin-bottom:35px;
+}
+
+.panel{
+    background:white;
+    padding:28px;
+    border-radius:12px;
+    box-shadow:0 6px 20px rgba(15,23,42,0.1);
+}
+
+/* ---------- VIDEO ---------- */
+
+video{
+    width:100%;
+    max-height:500px;
+    border-radius:10px;
+    display:block;
+}
+
+.video-note{
+    margin-top:18px;
+    color:#475569;
+    line-height:1.6;
+}
+
+/* ---------- LOGIN ---------- */
+
+.login-form{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.login-form input,
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:14px;
+    border:1px solid #cbd5e1;
+    border-radius:7px;
+    font-size:16px;
+    outline:none;
+}
+
+.login-form input:focus,
+.contact-form input:focus,
+.contact-form textarea:focus{
+    border-color:#38bdf8;
+}
+
+.primary-btn{
+    padding:14px;
+    background:#172554;
+    color:white;
+    border:none;
+    border-radius:7px;
+    font-size:17px;
+    cursor:pointer;
+}
+
+.primary-btn:hover{
+    background:#1e40af;
+}
+
+.success{
+    margin-top:18px;
+    color:#15803d;
+    font-weight:bold;
+}
+
+/* ---------- STUDENT INFORMATION ---------- */
+
+.student-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.info-card{
+    background:#eff6ff;
+    border-left:5px solid #38bdf8;
+    padding:23px;
+    border-radius:9px;
+    transition:0.3s;
+}
+
+.info-card:hover{
+    transform:scale(1.03);
+    box-shadow:0 8px 18px rgba(0,0,0,0.1);
+}
+
+.info-card h3{
+    color:#172554;
+    margin-bottom:12px;
+    font-size:18px;
+}
+
+.info-card p{
+    font-size:17px;
+    color:#475569;
+}
+
+/* ---------- XML CONFIGURATION ---------- */
+
+.config-table{
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+}
+
+.config-table th{
+    background:#172554;
+    color:white;
+    padding:14px;
+    text-align:left;
+}
+
+.config-table td{
+    padding:14px;
+    border-bottom:1px solid #e2e8f0;
+}
+
+.config-table tr:nth-child(even){
+    background:#f8fafc;
+}
+
+.active{
+    color:#15803d;
+    font-weight:bold;
+}
+
+/* ---------- NETWORK ---------- */
+
+.network-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.network-item{
+    background:#ecfeff;
+    padding:25px;
+    text-align:center;
+    border-radius:10px;
+    border:1px solid #a5f3fc;
+}
+
+.network-item h3{
+    color:#164e63;
+    margin-bottom:12px;
+}
+
+.network-item p{
+    font-size:17px;
+}
+
+/* ---------- CONTACT ---------- */
+
+.contact-area{
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:25px;
+}
+
+.college-details h3{
+    color:#172554;
+    font-size:23px;
+    margin-bottom:18px;
+}
+
+.college-details p{
+    line-height:1.7;
+}
+
+.contact-form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.contact-form textarea{
+    height:130px;
+    resize:vertical;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer{
+    background:#172554;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:20px;
+    line-height:1.7;
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+
+@media(max-width:900px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .student-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .network-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .student-grid,
+    .network-grid,
+    .contact-area{
+        grid-template-columns:1fr;
+    }
+
+    nav{
+        justify-content:center;
+    }
+
+    .heading{
+        font-size:28px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION BAR -->
+
+<header>
+
+<div class="logo">
+    StudentSphere
+</div>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#login">Login</a>
+    <a href="#student">Student Info</a>
+    <a href="#configuration">XML</a>
+    <a href="#network">Network</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+<h1>College Student Portal</h1>
+
+<p>
+    Welcome to StudentSphere, a simple digital portal
+    for accessing academic information, student services,
+    campus resources and important updates.
+</p>
+
+<button class="hero-btn"
+onclick="document.getElementById('login').scrollIntoView()">
+    Access Student Account
+</button>
+
+</section>
+
+
+<!-- VIDEO -->
+
+<section id="video">
+
+<div class="wrapper">
+
+<h2 class="heading">Explore Our Campus</h2>
+
+<div class="panel">
+
+<video controls>
+
+<source src="ABC.mp4" type="video/mp4">
+
+Your browser does not support the video element.
+
+</video>
+
+<p class="video-note">
+    The campus promotional video is embedded using the
+    HTML5 <strong>video</strong> element.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LOGIN -->
+
+<section id="login">
+
+<div class="wrapper">
+
+<h2 class="heading">Student Account Login</h2>
+
+<div class="panel">
+
+<form class="login-form" method="POST">
+
+<input
+type="text"
+name="student_id"
+placeholder="Enter Student ID"
+required>
+
+<input
+type="password"
+name="password"
+placeholder="Enter Password"
+required>
+
+<button type="submit" class="primary-btn">
+    Sign In
+</button>
+
+</form>
+
+<p class="success">
+    ✔ Login form uses the POST HTTP method.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STUDENT INFORMATION -->
+
+<section id="student">
+
+<div class="wrapper">
+
+<h2 class="heading">Academic Dashboard</h2>
+
+<div class="student-grid">
+
+<div class="info-card">
+    <h3>Attendance</h3>
+    <p>94%</p>
+</div>
+
+<div class="info-card">
+    <h3>Internal Assessment</h3>
+    <p>86 / 100</p>
+</div>
+
+<div class="info-card">
+    <h3>Class Schedule</h3>
+    <p>Weekly Timetable</p>
+</div>
+
+<div class="info-card">
+    <h3>Assignments</h3>
+    <p>2 Pending</p>
+</div>
+
+<div class="info-card">
+    <h3>Fee Status</h3>
+    <p>Payment Completed</p>
+</div>
+
+<div class="info-card">
+    <h3>Academic Result</h3>
+    <p>CGPA: 8.60</p>
+</div>
+
+<div class="info-card">
+    <h3>Library</h3>
+    <p>3 Books Issued</p>
+</div>
+
+<div class="info-card">
+    <h3>Faculty</h3>
+    <p>Faculty Directory</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- XML CONFIGURATION -->
+
+<section id="configuration">
+
+<div class="wrapper">
+
+<h2 class="heading">System XML Configuration</h2>
+
+<div class="panel">
+
+<p style="margin-bottom:20px;line-height:1.6;">
+    The following table represents the configuration
+    information maintained through the student portal's
+    XML configuration file.
+</p>
+
+<table class="config-table">
+
+<tr>
+    <th>System Component</th>
+    <th>Current State</th>
+</tr>
+
+<tr>
+    <td>XML Configuration File</td>
+    <td>portal-config.xml</td>
+</tr>
+
+<tr>
+    <td>Student Services</td>
+    <td class="active">✔ Enabled</td>
+</tr>
+
+<tr>
+    <td>Faculty Services</td>
+    <td class="active">✔ Enabled</td>
+</tr>
+
+<tr>
+    <td>Attendance Tracking</td>
+    <td class="active">✔ Enabled</td>
+</tr>
+
+<tr>
+    <td>Examination System</td>
+    <td class="active">✔ Enabled</td>
+</tr>
+
+<tr>
+    <td>Library Services</td>
+    <td class="active">✔ Enabled</td>
+</tr>
+
+<tr>
+    <td>XML Validation</td>
+    <td class="active">✔ Valid</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NETWORK -->
+
+<section id="network">
+
+<div class="wrapper">
+
+<h2 class="heading">Server & Network Information</h2>
+
+<div class="network-grid">
+
+<div class="network-item">
+    <h3>Protocol</h3>
+    <p><strong>HTTP</strong></p>
+</div>
+
+<div class="network-item">
+    <h3>Host Server</h3>
+    <p>studentsphere.edu</p>
+</div>
+
+<div class="network-item">
+    <h3>Connection</h3>
+    <p class="active">Online</p>
+</div>
+
+<div class="network-item">
+    <h3>Server Response</h3>
+    <p>200 OK</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="wrapper">
+
+<h2 class="heading">Get In Touch</h2>
+
+<div class="contact-area">
+
+<div class="panel college-details">
+
+<h3>College Information</h3>
+
+<p>
+<strong>Institution:</strong><br>
+ABC College
+</p>
+
+<br>
+
+<p>
+<strong>Location:</strong><br>
+Chennai, Tamil Nadu
+</p>
+
+<br>
+
+<p>
+<strong>Email:</strong><br>
+contact@college.edu
+</p>
+
+<br>
+
+<p>
+<strong>Phone:</strong><br>
++91 90000 12345
+</p>
+
+</div>
+
+
+<div class="panel">
+
+<form class="contact-form">
+
+<input
+type="text"
+name="visitor_name"
+placeholder="Enter your name"
+required>
+
+<input
+type="email"
+name="visitor_email"
+placeholder="Enter your email"
+required>
+
+<textarea
+name="message"
+placeholder="Type your message here">
+</textarea>
+
+<button type="submit" class="primary-btn">
+    Submit Enquiry
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+    © 2026 StudentSphere College Portal
+</p>
+
+<p>
+    Internet Programming Practical
+</p>
+
+</footer>
+
+</body>
+</html>
