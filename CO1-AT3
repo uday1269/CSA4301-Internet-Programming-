@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Digital Learning Hub</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f1f5f9;
+    color:#1e293b;
+}
+
+/* HEADER */
+
+header{
+    background:#0f172a;
+    color:white;
+    padding:35px 20px;
+    text-align:center;
+    border-bottom:5px solid #14b8a6;
+}
+
+header h1{
+    font-size:38px;
+    margin-bottom:8px;
+}
+
+header p{
+    color:#cbd5e1;
+}
+
+/* MAIN CONTAINER */
+
+.wrapper{
+    width:90%;
+    max-width:1100px;
+    margin:30px auto;
+}
+
+/* CONTENT CARDS */
+
+.box{
+    background:white;
+    padding:28px;
+    margin-bottom:25px;
+    border-radius:12px;
+    border:1px solid #dbe3ec;
+    box-shadow:0 5px 15px rgba(15,23,42,0.08);
+}
+
+.box h2{
+    color:#0f766e;
+    margin-bottom:20px;
+    border-bottom:2px solid #ccfbf1;
+    padding-bottom:10px;
+}
+
+/* FORM */
+
+.study-form{
+    background:#f8fafc;
+    padding:20px;
+    border-radius:8px;
+}
+
+label{
+    display:block;
+    margin-top:12px;
+    font-weight:bold;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:12px;
+    margin-top:6px;
+    margin-bottom:12px;
+    border:1px solid #cbd5e1;
+    border-radius:6px;
+    font-size:15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    outline:none;
+    border-color:#14b8a6;
+}
+
+button{
+    background:#0f766e;
+    color:white;
+    border:0;
+    padding:12px 25px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#115e59;
+}
+
+/* QUESTIONS */
+
+details{
+    margin:15px 0;
+    border:1px solid #dbe3ec;
+    border-radius:8px;
+    background:#f8fafc;
+    padding:15px;
+}
+
+summary{
+    cursor:pointer;
+    font-weight:bold;
+    color:#0f172a;
+    font-size:17px;
+}
+
+.question-content{
+    margin-top:18px;
+    padding:15px;
+    background:white;
+    border-radius:7px;
+}
+
+pre{
+    background:#17202a;
+    color:#d1fae5;
+    padding:15px;
+    margin:12px 0;
+    border-radius:6px;
+    overflow-x:auto;
+}
+
+.answer{
+    color:#047857;
+    font-weight:bold;
+    margin:12px 0;
+}
+
+.explanation{
+    line-height:1.7;
+}
+
+ul{
+    margin-left:25px;
+    line-height:1.8;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    background:#0f172a;
+    color:#cbd5e1;
+    padding:20px;
+    margin-top:40px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    header h1{
+        font-size:30px;
+    }
+
+    .wrapper{
+        width:94%;
+    }
+
+    .box{
+        padding:20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+
+<h1>📚 Digital Learning Hub</h1>
+
+<p>
+HTML, HTTP, XML and Web Communication - Case Study
+</p>
+
+</header>
+
+
+<div class="wrapper">
+
+
+<!-- REGISTRATION -->
+
+<div class="box">
+
+<h2>Course Registration</h2>
+
+<form
+class="study-form"
+onsubmit="event.preventDefault(); alert('Course registration completed successfully!');"
+>
+
+<label>Student Name</label>
+
+<input
+type="text"
+name="student"
+placeholder="Enter your full name"
+required
+>
+
+
+<label>Email Address</label>
+
+<input
+type="email"
+name="email"
+placeholder="Enter your email"
+required
+>
+
+
+<label>Select Course</label>
+
+<select name="course">
+
+<option>Web Development</option>
+<option>Database Management</option>
+<option>Java Programming</option>
+<option>Cloud Computing</option>
+
+</select>
+
+
+<label>Additional Message</label>
+
+<textarea
+rows="4"
+name="message"
+placeholder="Enter your comments">
+</textarea>
+
+
+<button type="submit">
+Enroll Now
+</button>
+
+</form>
+
+</div>
+
+
+<!-- QUESTIONS -->
+
+<div class="box">
+
+<h2>Case Study - Questions and Solutions</h2>
+
+
+<!-- QUESTION 1 -->
+
+<details>
+
+<summary>Question 1 - Embedding a Video</summary>
+
+<div class="question-content">
+
+<h3>Options</h3>
+
+<pre>
+A. &lt;movie&gt;
+B. &lt;video&gt;
+C. &lt;media&gt;
+D. &lt;film&gt;
+</pre>
+
+<p class="answer">
+Correct Answer: B. &lt;video&gt;
+</p>
+
+<p class="explanation">
+
+HTML5 provides the <b>&lt;video&gt;</b> element for displaying
+video content directly on a webpage. It can provide controls
+such as play, pause, volume and fullscreen.
+
+In an online learning platform, this element can be used
+to display recorded lectures and educational videos.
+
+</p>
+
+</div>
+
+</details>
+
+
+<!-- QUESTION 2 -->
+
+<details>
+
+<summary>Question 2 - Choosing a Form Method</summary>
+
+<div class="question-content">
+
+<h3>Options</h3>
+
+<pre>
+A. GET
+B. DELETE
+C. POST
+D. PATCH
+</pre>
+
+<p class="answer">
+Correct Answer: C. POST
+</p>
+
+<p class="explanation">
+
+The POST method sends form information through the HTTP
+request body rather than placing the submitted values in
+the URL.
+
+For student registration, POST is preferable because
+personal information should not normally be exposed through
+the URL.
+
+For actual security, the connection should also use HTTPS.
+
+</p>
+
+</div>
+
+</details>
+
+
+<!-- QUESTION 3 -->
+
+<details>
+
+<summary>Question 3 - Semantic Navigation Element</summary>
+
+<div class="question-content">
+
+<h3>Options</h3>
+
+<pre>
+A. &lt;article&gt;
+B. &lt;main&gt;
+C. &lt;nav&gt;
+D. &lt;footer&gt;
+</pre>
+
+<p class="answer">
+Correct Answer: C. &lt;nav&gt;
+</p>
+
+<p class="explanation">
+
+The <b>&lt;nav&gt;</b> element is specifically designed
+to represent a collection of important navigation links.
+
+For example, an educational website may contain links
+for Home, Courses, Results, Assignments and Contact.
+
+Using the semantic navigation element makes the structure
+of the webpage clearer to browsers and assistive technologies.
+
+</p>
+
+</div>
+
+</details>
+
+
+<!-- QUESTION 4 -->
+
+<details>
+
+<summary>Question 4 - Identifying Valid XML</summary>
+
+<div class="question-content">
+
+<h3>Options</h3>
+
+<pre>
+A. &lt;student&gt;&lt;name&gt;Alex&lt;/name&gt;
+
+B. &lt;student&gt;&lt;name&gt;Alex&lt;/name&gt;&lt;/student&gt;
+
+C. &lt;student&gt;&lt;name&gt;Alex&lt;/student&gt;&lt;/name&gt;
+
+D. &lt;student&gt;&lt;name&gt;Alex&lt;/name
+</pre>
+
+<p class="answer">
+Correct Answer: B
+</p>
+
+<h3>Reason</h3>
+
+<ul>
+
+<li>
+A → The root element is not closed.
+</li>
+
+<li>
+B → Both elements are properly opened and closed.
+</li>
+
+<li>
+C → The closing tags are incorrectly nested.
+</li>
+
+<li>
+D → The closing bracket is missing.
+</li>
+
+</ul>
+
+<p class="explanation">
+
+XML follows strict syntax rules. Every opening tag must
+have a matching closing tag, and elements must be correctly
+nested inside one another.
+
+</p>
+
+</div>
+
+</details>
+
+
+<!-- QUESTION 5 -->
+
+<details>
+
+<summary>Question 5 - Browser and Server Protocol</summary>
+
+<div class="question-content">
+
+<h3>Options</h3>
+
+<pre>
+A. SMTP
+B. FTP
+C. HTTP
+D. DHCP
+</pre>
+
+<p class="answer">
+Correct Answer: C. HTTP
+</p>
+
+<p class="explanation">
+
+HTTP stands for HyperText Transfer Protocol. It is commonly
+used for communication between a web browser and a web server.
+
+When a student accesses an online course, the browser sends
+HTTP requests to the server. The server then responds with
+resources such as HTML documents, CSS files, JavaScript and
+other web content.
+
+SMTP is mainly used for email communication, FTP is used
+for file transfer, and DHCP is used for network configuration.
+
+</p>
+
+</div>
+
+</details>
+
+
+</div>
+
+</div>
+
+
+<footer>
+
+<p>
+© 2026 Digital Learning Hub
+</p>
+
+<p>
+Internet Programming Case Study
+</p>
+
+</footer>
+
+
+</body>
+
+</html>
