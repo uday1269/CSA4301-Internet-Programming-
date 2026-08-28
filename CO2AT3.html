@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Frontend Development Assessment</title>
+
+
+    <style>
+
+        /* ================================
+           BASIC PAGE SETTINGS
+        ================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+
+            background: #eef2ff;
+            color: #1f2937;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================================
+           HEADER
+        ================================= */
+
+        .main-header {
+            background: linear-gradient(
+                135deg,
+                #312e81,
+                #4f46e5
+            );
+
+            color: white;
+
+            text-align: center;
+
+            padding: 35px 20px;
+        }
+
+        .main-header h1 {
+            margin: 0;
+            font-size: 34px;
+        }
+
+        .main-header p {
+            margin-top: 8px;
+            font-size: 16px;
+        }
+
+
+        /* ================================
+           MAIN CONTAINER
+        ================================= */
+
+        .content-area {
+            width: 92%;
+            max-width: 1150px;
+
+            margin: 35px auto;
+        }
+
+
+        /* ================================
+           QUESTION CARD
+        ================================= */
+
+        .task-card {
+            background: #ffffff;
+
+            margin-bottom: 28px;
+
+            padding: 28px;
+
+            border-radius: 14px;
+
+            border-top: 5px solid #4f46e5;
+
+            box-shadow:
+                0 5px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .task-card h2 {
+            margin-top: 0;
+
+            color: #312e81;
+
+            font-size: 23px;
+        }
+
+        .task-card h3 {
+            color: #374151;
+
+            margin-top: 22px;
+            margin-bottom: 8px;
+        }
+
+        .answer-content {
+            margin-top: 15px;
+        }
+
+
+        /* ================================
+           QUESTION 1
+           RESPONSIVE FLEXBOX DEMO
+        ================================= */
+
+        .flex-example {
+            margin-top: 20px;
+
+            display: flex;
+
+            gap: 16px;
+        }
+
+        .flex-item {
+            flex: 1;
+
+            padding: 25px;
+
+            text-align: center;
+
+            background: #e0e7ff;
+
+            border: 2px solid #6366f1;
+
+            border-radius: 10px;
+
+            font-weight: bold;
+        }
+
+
+        /* ================================
+           QUESTION 2
+           FORM VALIDATION
+        ================================= */
+
+        .validation-area {
+            margin-top: 20px;
+
+            padding: 23px;
+
+            background: #f8fafc;
+
+            border-radius: 12px;
+
+            border: 1px solid #cbd5e1;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+
+            margin-bottom: 6px;
+
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: 100%;
+
+            padding: 11px;
+
+            border: 1px solid #94a3b8;
+
+            border-radius: 7px;
+
+            font-size: 15px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+
+            border-color: #4f46e5;
+
+            box-shadow:
+                0 0 0 2px rgba(79, 70, 229, 0.15);
+        }
+
+        .validate-button {
+            padding: 10px 22px;
+
+            background: #4f46e5;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 7px;
+
+            cursor: pointer;
+
+            font-size: 15px;
+        }
+
+        .validate-button:hover {
+            background: #3730a3;
+        }
+
+        #formResult {
+            margin-top: 15px;
+
+            font-weight: bold;
+        }
+
+
+        /* ================================
+           QUESTION 3
+           BOX MODEL
+        ================================= */
+
+        .box-demo {
+            width: 320px;
+
+            margin: 30px auto;
+
+            padding: 28px;
+
+            border: 7px solid #4f46e5;
+
+            background: #c7d2fe;
+
+            text-align: center;
+
+            border-radius: 5px;
+        }
+
+        .box-demo span {
+            font-weight: bold;
+        }
+
+
+        /* ================================
+           QUESTION 4
+           DOM DEMONSTRATION
+        ================================= */
+
+        .dom-area {
+            margin-top: 20px;
+
+            padding: 25px;
+
+            background: #f8fafc;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            border: 1px solid #cbd5e1;
+        }
+
+        #outputText {
+            margin: 15px;
+
+            font-size: 21px;
+
+            font-weight: bold;
+
+            color: #312e81;
+        }
+
+        .dom-button {
+            margin: 5px;
+
+            padding: 10px 17px;
+
+            border: none;
+
+            border-radius: 7px;
+
+            background: #312e81;
+
+            color: white;
+
+            cursor: pointer;
+        }
+
+        .dom-button:hover {
+            background: #4338ca;
+        }
+
+
+        /* ================================
+           FOOTER
+        ================================= */
+
+        .page-footer {
+            margin-top: 45px;
+
+            padding: 23px;
+
+            text-align: center;
+
+            background: #312e81;
+
+            color: white;
+        }
+
+
+        /* ================================
+           TABLET RESPONSIVENESS
+        ================================= */
+
+        @media (max-width: 768px) {
+
+            .main-header h1 {
+                font-size: 27px;
+            }
+
+            .content-area {
+                width: 95%;
+            }
+
+            .flex-example {
+                flex-direction: column;
+            }
+
+            .task-card {
+                padding: 21px;
+            }
+
+        }
+
+
+        /* ================================
+           MOBILE RESPONSIVENESS
+        ================================= */
+
+        @media (max-width: 480px) {
+
+            body {
+                font-size: 14px;
+            }
+
+            .main-header {
+                padding: 25px 12px;
+            }
+
+            .main-header h1 {
+                font-size: 22px;
+            }
+
+            .task-card h2 {
+                font-size: 20px;
+            }
+
+            .box-demo {
+                width: 90%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================
+         PAGE HEADER
+    ================================== -->
+
+    <header class="main-header">
+
+        <h1>
+            Frontend Development Assessment
+        </h1>
+
+        <p>
+            HTML • CSS • JavaScript Practical Concepts
+        </p>
+
+    </header>
+
+
+    <main class="content-area">
+
+
+        <!-- =================================
+             QUESTION 1
+        ================================== -->
+
+        <section class="task-card">
+
+            <h2>
+                Question 1 – Responsive Web Design
+            </h2>
+
+            <div class="answer-content">
+
+
+                <h3>
+                    Meaning of Responsive Web Design
+                </h3>
+
+                <p>
+                    Responsive Web Design is a method of developing websites
+                    so that the webpage automatically adapts to different
+                    screen sizes. The same website can therefore be viewed
+                    comfortably on smartphones, tablets and computers.
+                </p>
+
+
+                <h3>
+                    Benefits of Responsive Design
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Creates a consistent experience across devices.
+                    </li>
+
+                    <li>
+                        Makes webpages easier to read and navigate.
+                    </li>
+
+                    <li>
+                        Avoids maintaining separate desktop and mobile sites.
+                    </li>
+
+                    <li>
+                        Makes content suitable for different screen widths.
+                    </li>
+
+                    <li>
+                        Improves general accessibility.
+                    </li>
+
+                </ul>
+
+
+                <h3>
+                    Important CSS Techniques
+                </h3>
+
+                <ul>
+
+                    <li>Relative and flexible dimensions</li>
+
+                    <li>CSS media queries</li>
+
+                    <li>Responsive images</li>
+
+                    <li>Flexbox layout</li>
+
+                    <li>CSS Grid layout</li>
+
+                </ul>
+
+
+                <h3>
+                    Flexbox Demonstration
+                </h3>
+
+                <p>
+                    Flexbox is useful when elements need to be arranged
+                    along a single row or column. The following example
+                    automatically changes to a vertical layout on smaller
+                    screens.
+                </p>
+
+
+                <div class="flex-example">
+
+                    <div class="flex-item">
+                        Section A
+                    </div>
+
+                    <div class="flex-item">
+                        Section B
+                    </div>
+
+                    <div class="flex-item">
+                        Section C
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Improving the User Interface
+                </h3>
+
+                <p>
+                    A responsive interface should use suitable font sizes,
+                    enough spacing, large touch-friendly controls, simple
+                    navigation and optimized media. Forms should also be
+                    comfortable to use on mobile devices.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             QUESTION 2
+        ================================== -->
+
+        <section class="task-card">
+
+            <h2>
+                Question 2 – Client-Side Form Validation
+            </h2>
+
+            <div class="answer-content">
+
+
+                <h3>
+                    Definition
+                </h3>
+
+                <p>
+                    Client-side validation checks information entered by a
+                    user directly in the web browser before the information
+                    is submitted to the server. JavaScript is commonly used
+                    to perform this task.
+                </p>
+
+
+                <h3>
+                    Why Validation is Required
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Detects incorrect input before submission.
+                    </li>
+
+                    <li>
+                        Gives instant feedback to users.
+                    </li>
+
+                    <li>
+                        Improves the form-filling experience.
+                    </li>
+
+                    <li>
+                        Reduces unnecessary server requests.
+                    </li>
+
+                </ul>
+
+
+                <h3>
+                    JavaScript Events
+                </h3>
+
+                <p>
+                    Forms can respond to events such as
+                    <b>submit</b>, <b>click</b>, <b>input</b> and
+                    <b>change</b>. These events can be used to check
+                    whether the entered values satisfy the required rules.
+                </p>
+
+
+                <h3>
+                    Regular Expression
+                </h3>
+
+                <p>
+                    A regular expression is a pattern used to identify
+                    whether text follows a particular format. It is useful
+                    for checking email addresses, phone numbers and other
+                    structured input.
+                </p>
+
+
+                <h3>
+                    Working Validation Example
+                </h3>
+
+
+                <div class="validation-area">
+
+                    <form id="userForm">
+
+
+                        <div class="input-group">
+
+                            <label for="userEmail">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="text"
+                                id="userEmail"
+                                placeholder="Enter your email">
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label for="userPhone">
+                                Mobile Number
+                            </label>
+
+                            <input
+                                type="text"
+                                id="userPhone"
+                                placeholder="Enter 10 digit number">
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="validate-button">
+
+                            Check Details
+
+                        </button>
+
+
+                        <p id="formResult"></p>
+
+                    </form>
+
+                </div>
+
+
+                <h3>
+                    Validation and Security
+                </h3>
+
+                <p>
+                    Validation messages should clearly identify the problem
+                    so that users can correct their input. Labels should be
+                    provided for form controls. Client-side validation should
+                    not be considered a complete security mechanism because
+                    the server must independently validate and sanitize data.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             QUESTION 3
+        ================================== -->
+
+        <section class="task-card">
+
+            <h2>
+                Question 3 – CSS Box Model and Positioning
+            </h2>
+
+            <div class="answer-content">
+
+
+                <h3>
+                    CSS Box Model
+                </h3>
+
+                <p>
+                    The CSS Box Model explains how space is calculated around
+                    an HTML element. Every element can be considered as a
+                    rectangular box containing content, padding, border and
+                    margin.
+                </p>
+
+
+                <h3>
+                    Components of the Box Model
+                </h3>
+
+                <ol>
+
+                    <li>
+                        <b>Content:</b>
+                        The actual text, image or element inside the box.
+                    </li>
+
+                    <li>
+                        <b>Padding:</b>
+                        Space between the content and the border.
+                    </li>
+
+                    <li>
+                        <b>Border:</b>
+                        The visible boundary surrounding the element.
+                    </li>
+
+                    <li>
+                        <b>Margin:</b>
+                        Space outside the border.
+                    </li>
+
+                </ol>
+
+
+                <h3>
+                    Box Model Demonstration
+                </h3>
+
+
+                <div class="box-demo">
+
+                    <span>
+                        CONTENT
+                    </span>
+
+                    <br>
+
+                    Padding
+
+                    <br>
+
+                    Border
+
+                    <br>
+
+                    Margin
+
+                </div>
+
+
+                <h3>
+                    CSS Position Properties
+                </h3>
+
+                <p>
+                    Positioning properties determine how an element is
+                    placed within a webpage.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <b>Static:</b>
+                        Normal position of an element.
+                    </li>
+
+                    <li>
+                        <b>Relative:</b>
+                        Moves an element relative to its normal location.
+                    </li>
+
+                    <li>
+                        <b>Absolute:</b>
+                        Positions an element relative to a positioned parent.
+                    </li>
+
+                    <li>
+                        <b>Fixed:</b>
+                        Keeps an element attached to the browser window.
+                    </li>
+
+                    <li>
+                        <b>Sticky:</b>
+                        Allows an element to remain visible during scrolling.
+                    </li>
+
+                </ul>
+
+
+                <h3>
+                    Reasons for Layout Problems
+                </h3>
+
+                <ul>
+
+                    <li>Unnecessarily fixed widths</li>
+
+                    <li>Oversized images</li>
+
+                    <li>Incorrect margins and padding</li>
+
+                    <li>Improper element positioning</li>
+
+                    <li>Content overflowing its container</li>
+
+                    <li>Lack of responsive CSS rules</li>
+
+                </ul>
+
+
+                <h3>
+                    Media Queries
+                </h3>
+
+                <p>
+                    Media queries allow CSS rules to change according to
+                    the device or viewport size. For example, a three-column
+                    desktop design can be converted into a single-column
+                    mobile layout.
+                </p>
+
+
+                <h3>
+                    Recommended Practices
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Use <b>box-sizing: border-box</b>.
+                    </li>
+
+                    <li>
+                        Prefer flexible dimensions.
+                    </li>
+
+                    <li>
+                        Use Flexbox and Grid for major layouts.
+                    </li>
+
+                    <li>
+                        Avoid unnecessary fixed positioning.
+                    </li>
+
+                    <li>
+                        Keep images responsive.
+                    </li>
+
+                    <li>
+                        Test layouts on different screen sizes.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             QUESTION 4
+        ================================== -->
+
+        <section class="task-card">
+
+            <h2>
+                Question 4 – DOM and Dynamic Web Content
+            </h2>
+
+            <div class="answer-content">
+
+
+                <h3>
+                    What is DOM?
+                </h3>
+
+                <p>
+                    DOM stands for Document Object Model. It represents the
+                    structure of an HTML webpage as a collection of objects.
+                    JavaScript can use these objects to read and modify
+                    webpage elements.
+                </p>
+
+
+                <h3>
+                    Purpose of DOM
+                </h3>
+
+                <p>
+                    Using the DOM, JavaScript can modify text, HTML elements,
+                    attributes and CSS properties without loading the entire
+                    webpage again.
+                </p>
+
+
+                <h3>
+                    DOM Manipulation Methods
+                </h3>
+
+                <p>
+                    Elements can be selected using methods such as
+                    <b>getElementById()</b> and <b>querySelector()</b>.
+                    After selecting an element, JavaScript can modify its
+                    text using properties such as <b>textContent</b>.
+                </p>
+
+
+                <h3>
+                    Interactive DOM Example
+                </h3>
+
+
+                <div class="dom-area">
+
+                    <div id="outputText">
+                        Welcome to my webpage!
+                    </div>
+
+
+                    <button
+                        class="dom-button"
+                        onclick="updateMessage()">
+
+                        Update Text
+
+                    </button>
+
+
+                    <button
+                        class="dom-button"
+                        onclick="highlightMessage()">
+
+                        Highlight
+
+                    </button>
+
+
+                    <button
+                        class="dom-button"
+                        onclick="restoreMessage()">
+
+                        Restore
+
+                    </button>
+
+                </div>
+
+
+                <h3>
+                    Performance Considerations
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Change only the necessary DOM elements.
+                    </li>
+
+                    <li>
+                        Avoid repeated and unnecessary DOM operations.
+                    </li>
+
+                    <li>
+                        Use efficient event handling.
+                    </li>
+
+                    <li>
+                        Avoid repeatedly searching for the same element.
+                    </li>
+
+                    <li>
+                        Load scripts efficiently.
+                    </li>
+
+                </ul>
+
+
+                <h3>
+                    Benefits for User Experience
+                </h3>
+
+                <p>
+                    DOM manipulation allows websites to respond to user
+                    actions without refreshing the complete page. It can be
+                    used for features such as live search, notifications,
+                    shopping cart updates, interactive menus and dynamic
+                    content.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =================================
+         FOOTER
+    ================================== -->
+
+    <footer class="page-footer">
+
+        <p>
+            Frontend Development Assessment
+        </p>
+
+        <p>
+            HTML | CSS | JavaScript
+        </p>
+
+    </footer>
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+
+        /* =================================
+           QUESTION 2
+           FORM VALIDATION
+        ================================== */
+
+        const userForm =
+            document.querySelector("#userForm");
+
+
+        userForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            const email =
+                document.querySelector("#userEmail").value.trim();
+
+
+            const phone =
+                document.querySelector("#userPhone").value.trim();
+
+
+            const result =
+                document.querySelector("#formResult");
+
+
+            const validEmail =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+            const validPhone =
+                /^[6-9][0-9]{9}$/;
+
+
+            if (email === "" || phone === "") {
+
+                result.textContent =
+                    "⚠ Please fill in all fields.";
+
+                result.style.color = "orange";
+
+                return;
+            }
+
+
+            if (!validEmail.test(email)) {
+
+                result.textContent =
+                    "✖ Enter a valid email address.";
+
+                result.style.color = "red";
+
+                return;
+            }
+
+
+            if (!validPhone.test(phone)) {
+
+                result.textContent =
+                    "✖ Enter a valid 10-digit mobile number.";
+
+                result.style.color = "red";
+
+                return;
+            }
+
+
+            result.textContent =
+                "✔ Information entered successfully.";
+
+            result.style.color = "green";
+
+        });
+
+
+        /* =================================
+           QUESTION 4
+           DOM TEXT UPDATE
+        ================================== */
+
+        function updateMessage() {
+
+            const display =
+                document.querySelector("#outputText");
+
+
+            display.textContent =
+                "JavaScript has successfully changed the content.";
+
+        }
+
+
+        /* =================================
+           DOM STYLE UPDATE
+        ================================== */
+
+        function highlightMessage() {
+
+            const display =
+                document.querySelector("#outputText");
+
+
+            display.style.color = "#4f46e5";
+
+            display.style.fontSize = "25px";
+
+            display.style.transform = "scale(1.03)";
+
+        }
+
+
+        /* =================================
+           RESET DOM CONTENT
+        ================================== */
+
+        function restoreMessage() {
+
+            const display =
+                document.querySelector("#outputText");
+
+
+            display.textContent =
+                "Welcome to my webpage!";
+
+            display.style.color = "#312e81";
+
+            display.style.fontSize = "21px";
+
+            display.style.transform = "scale(1)";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
