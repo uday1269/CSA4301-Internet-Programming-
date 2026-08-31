@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>XML Transformation Techniques</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f6fa;
+            color: #222;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #222;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+
+        .comparison {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison th,
+        .comparison td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .comparison th {
+            background: #222;
+            color: white;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>XML Transformation Techniques</h1>
+
+    <p>XSLT-Based Transformation vs JSP-Based Rendering</p>
+
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>1. XSLT-Based Transformation</h2>
+
+        <p>
+            XSLT transforms XML data into structured HTML
+            using templates and XPath expressions.
+        </p>
+
+        <p>
+            In this prototype, the XML file is transformed
+            directly into a web report.
+        </p>
+
+        <a class="button" href="students.xml">
+            View XML Report
+        </a>
+
+    </div>
+
+    <div class="card">
+
+        <h2>2. JSP-Based Dynamic Rendering</h2>
+
+        <p>
+            JSP is a server-side Java technology that processes
+            application data and dynamically generates HTML.
+        </p>
+
+        <p>
+            JSP is discussed as the dynamic alternative in this
+            assessment, but it requires a server such as Apache
+            Tomcat and is therefore not used in this static prototype.
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Comparison</h2>
+
+        <table class="comparison">
+
+            <tr>
+                <th>Feature</th>
+                <th>XSLT</th>
+                <th>JSP</th>
+            </tr>
+
+            <tr>
+                <td>Execution</td>
+                <td>XML transformation</td>
+                <td>Server-side execution</td>
+            </tr>
+
+            <tr>
+                <td>Server Required</td>
+                <td>No for client-side transformation</td>
+                <td>Yes</td>
+            </tr>
+
+            <tr>
+                <td>XML Processing</td>
+                <td>Excellent</td>
+                <td>Requires Java XML APIs</td>
+            </tr>
+
+            <tr>
+                <td>Business Logic</td>
+                <td>Limited</td>
+                <td>Excellent</td>
+            </tr>
+
+            <tr>
+                <td>Database Integration</td>
+                <td>Limited</td>
+                <td>Excellent</td>
+            </tr>
+
+            <tr>
+                <td>Best Use</td>
+                <td>XML transformation</td>
+                <td>Dynamic web applications</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

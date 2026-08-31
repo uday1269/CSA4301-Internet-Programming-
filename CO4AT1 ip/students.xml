@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="students.xsl"?>
+
+<students>
+    <student>
+        <id>101</id>
+        <name>Arun Kumar</name>
+        <department>CSE</department>
+        <mark>85</mark>
+        <grade>A</grade>
+    </student>
+
+    <student>
+        <id>102</id>
+        <name>Priya Sharma</name>
+        <department>ECE</department>
+        <mark>92</mark>
+        <grade>A+</grade>
+    </student>
+
+    <student>
+        <id>103</id>
+        <name>Rahul Raj</name>
+        <department>IT</department>
+        <mark>76</mark>
+        <grade>B+</grade>
+    </student>
+
+    <student>
+        <id>104</id>
+        <name>Divya S</name>
+        <department>CSE</department>
+        <mark>88</mark>
+        <grade>A</grade>
+    </student>
+</students>
